@@ -1,6 +1,12 @@
 const usersSchema = require('../models/usersSchema');
 const usersController = {};
 
+usersController.api = (req, res) => {
+    res.json({
+        "Api": "La gran ballena"
+    });
+}
+
 usersController.getUsers = async (req, res) => {
     const user = await usersSchema.find();
     res.json(user);

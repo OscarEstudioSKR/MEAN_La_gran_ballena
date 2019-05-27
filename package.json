@@ -4,7 +4,7 @@
   "description": "\"# MEAN_La_gran_ballena\"",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server/index.js"
+    "server": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
