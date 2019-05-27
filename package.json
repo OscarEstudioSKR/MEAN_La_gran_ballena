@@ -1,0 +1,28 @@
+{
+  "name": "La_gran_ballena",
+  "version": "1.0.0",
+  "description": "\"# MEAN_La_gran_ballena\"",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OscarEstudioSKR/MEAN_La_gran_ballena.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OscarEstudioSKR/MEAN_La_gran_ballena/issues"
+  },
+  "homepage": "https://github.com/OscarEstudioSKR/MEAN_La_gran_ballena#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.5.11",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
