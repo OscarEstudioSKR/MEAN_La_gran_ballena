@@ -13,6 +13,7 @@ app.use(express.json());
 
 //Routes
 app.use('/api', routes);
+
 //Server
 app.listen(app.get('port'), () => {
     console.log('Server on port ', app.get('port'))
