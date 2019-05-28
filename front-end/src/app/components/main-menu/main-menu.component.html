@@ -1,3 +1,6 @@
 <div>
-  Hola {{usersService.selectedUser.userName}}
+  <form #usersForm = "ngForm" (ngSubmit) = "submitUserForm(usersForm)">
+    <input type="text" name="userName" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userName" placeholder="Insert your name">
+
+  </form>
 </div>

@@ -8,13 +8,12 @@ import { UsersModel } from '../models/UsersModel';
 
 export class UsersService {
 
-  readonly URI_API = "http://localhost:3001/api/";
+  readonly URI_API = "http://localhost:3001/api/users";
   selectedUser: UsersModel;
   usersList: UsersModel[];
 
   constructor( private http: HttpClient) {
     this.selectedUser = new UsersModel();
-    console.log(this.selectedUser);
    }
 
   getUsers(){
