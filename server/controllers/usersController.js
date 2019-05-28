@@ -1,4 +1,5 @@
 const usersSchema = require('../models/usersSchema');
+const bcrypt = require('bcrypt');
 const usersController = {};
 
 usersController.api = (req, res) => {
@@ -18,9 +19,13 @@ usersController.getUser = async (req, res) => {
 
 usersController.postUser = async (req, res) => {
     const newUser = await new usersSchema(req.body);
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(newUser.userPassword, salt);
+    newUser.userPassword = passwordHash;
     await newUser.save();
     res.json(newUser);
 };
+
 
 usersController.putUser = async (req, res) => {
     const {id} = req.params;
