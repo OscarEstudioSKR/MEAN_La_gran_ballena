@@ -27,7 +27,6 @@ export class MainMenuComponent implements OnInit {
     this.usersService.getUsers()
       .subscribe( res => {
         this.usersService.usersList = res as UsersModel[];
-        console.log(res as UsersModel[]);
       })
   }
 

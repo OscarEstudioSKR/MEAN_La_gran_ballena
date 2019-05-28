@@ -1,6 +1,7 @@
 <div>
   <form #usersForm = "ngForm" (ngSubmit) = "submitUserForm(usersForm)">
     <input type="text" name="userName" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userName" placeholder="Insert your name">
-
+    <input type="text" name="userPassword" #userPassword= "ngModel" [(ngModel)] = "usersService.selectedUser.userPassword" placeholder="Insert your password">
+    <button (click)="ngSubmit">Ok</button>
   </form>
 </div>
