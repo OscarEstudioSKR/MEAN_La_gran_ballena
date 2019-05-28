@@ -10,8 +10,12 @@ export class UsersService {
 
   readonly URI_API = "http://localhost:3001/api/";
   selectedUser: UsersModel;
+  usersList: UsersModel[];
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) {
+    this.selectedUser = new UsersModel();
+    console.log(this.selectedUser);
+   }
 
   getUsers(){
     return this.http.get( this.URI_API );
@@ -22,7 +26,7 @@ export class UsersService {
   postUser( user:UsersModel ){
     return this.http.post( this.URI_API, user);
   };
-  puttUser( user:UsersModel ){
+  putUser( user:UsersModel ){
     return this.http.put( this.URI_API + `/${user._id}`, user);
   };
   deletetUser( _id:string ){
