@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./scss/abstracts/variables.scss";
+@import "./scss/abstracts/mixins.scss";
+
+@import "./scss/base/base.scss";
+@import "./scss/base/utilities.scss";

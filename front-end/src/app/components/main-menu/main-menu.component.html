@@ -1,7 +1,23 @@
-<div>
-  <form #usersForm = "ngForm" (ngSubmit) = "submitUserForm(usersForm)">
-    <input type="text" name="userName" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userName" placeholder="Insert your name">
-    <input type="text" name="userPassword" #userPassword= "ngModel" [(ngModel)] = "usersService.selectedUser.userPassword" placeholder="Insert your password">
-    <button (click)="ngSubmit">Ok</button>
-  </form>
-</div>
+ <div class="main-menu">
+
+    <h1>LA GRAN BALLENA</h1>
+
+    <form *ngIf="menuLogin; else menuNewUser" #usersForm = "ngForm" (ngSubmit) = "loginUserForm(usersForm)">
+      <input type="text" name="userName" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userMail" placeholder="Correo">
+      <input type="text" name="userPassword" #userPassword= "ngModel" [(ngModel)] = "usersService.selectedUser.userPassword" placeholder="Contraseña">
+      <a (click)="menuLogin = !menuLogin ">Nuevo Usuario</a>
+      <button (click)="ngSubmit">Jugar</button>
+    </form>
+
+    <ng-template #menuNewUser>
+        <form #usersForm = "ngForm" (ngSubmit) = "saveUserForm(usersForm)">
+            <input type="text" name="userName" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userName" placeholder="Nombre">
+            <input type="text" name="userMail" #userMail= "ngModel" [(ngModel)] = "usersService.selectedUser.userMail" placeholder="Correo">
+            <input type="text" name="userPassword" #userPassword= "ngModel" [(ngModel)] = "usersService.selectedUser.userPassword" placeholder="Contraseña">
+            <a (click)="menuLogin = !menuLogin ">Login</a>
+            <button (click)="ngSubmit">Guardar</button>
+          </form>
+    </ng-template>
+
+ </div> 
+

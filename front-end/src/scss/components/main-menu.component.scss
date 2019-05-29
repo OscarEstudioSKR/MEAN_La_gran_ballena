@@ -1,0 +1,48 @@
+@import "../../styles.scss";
+
+.main-menu{
+    @extend %full-container;
+    background: $color-back;
+    position: relative;
+    
+    & h1{
+        padding-top: 30%;
+        height: 50%;
+        color: $color-white;
+    }
+    
+    & form{
+        @include center-absolute-box(70%, 15%);
+        display:flex;
+        flex-flow: row wrap;
+
+        & input{
+            width: 100%;
+            height: 35%;
+            text-align: center;
+        }
+        & a{
+            color: $color-white;
+            width: 50%;
+            height: 30%;
+            font-size: 1.2em;
+
+            &:hover{
+                @extend %basic-hover;
+            }
+        }
+        & button{
+            width: 50%;
+            height: 30%;
+            background: $color-primary;
+            color: $color-white;
+            outline-style: none;
+            
+            &:hover{
+                @extend %basic-hover;
+            }
+        }
+        
+    }
+
+}

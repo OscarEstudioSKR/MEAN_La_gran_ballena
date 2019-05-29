@@ -1,0 +1,16 @@
+$color-primary: #00adb5;
+$color-secundary: #222831;
+$color-back: #393e46;
+$color-white: #eeeeee;
+
+%full-container{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+};
+
+%basic-hover{
+    cursor: pointer;
+    filter: brightness(1.2);
+}

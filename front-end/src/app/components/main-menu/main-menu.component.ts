@@ -6,9 +6,10 @@ import { UsersModel } from 'src/app/models/UsersModel';
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.scss']
+  styleUrls: ['../../../scss/components/main-menu.component.scss']
 })
 export class MainMenuComponent implements OnInit {
+  menuLogin: boolean = true;
   
   constructor( private usersService: UsersService ) { }
 
@@ -16,11 +17,16 @@ export class MainMenuComponent implements OnInit {
     this.getUsers();
   }
 
-  submitUserForm( form: NgForm ){
+  saveUserForm( form: NgForm ){
     this.usersService.postUser( form.value )
       .subscribe( res => {
         console.log( res );
       });
+      this.cleanForm();
+  }
+
+  loginUserForm( form: NgForm ){
+    
   }
 
   getUsers(){
@@ -28,6 +34,10 @@ export class MainMenuComponent implements OnInit {
       .subscribe( res => {
         this.usersService.usersList = res as UsersModel[];
       })
+  }
+
+  cleanForm(){
+    this.usersService.selectedUser = new UsersModel();
   }
 
 }

@@ -30,7 +30,9 @@ usersController.postUser = async (req, res) => {
 usersController.putUser = async (req, res) => {
     const {id} = req.params;
     const setUser = {
-        userName: req.body.userName
+        userName: req.body.userName,
+        userMail: req.body.userMail,
+        userPassword: req.body.userPassword
     }
     await usersSchema.findByIdAndUpdate(id, {$set: setUser});
     res.json(setUser);
