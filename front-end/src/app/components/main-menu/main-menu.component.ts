@@ -14,16 +14,17 @@ export class MainMenuComponent implements OnInit {
   constructor( private usersService: UsersService ) { }
 
   ngOnInit() {
-    this.getUsers();
   }
 
   saveUserForm( form: NgForm ){
     this.usersService.selectedUser = form.value as UsersModel;
     this.usersService.postUser( form.value )
       .subscribe( res => {
-        console.log( res );
+        this.userLoged(res as UsersModel);
+        this.menuLogin = true;
+        this.cleanForm();
       });
-      this.cleanForm();
+      
   }
 
   loginUserForm( form: NgForm ){
@@ -31,21 +32,19 @@ export class MainMenuComponent implements OnInit {
     this.usersService.validateUser( form.value as UsersModel )
       .subscribe( res => {
         if(res){
-          console.log("User loged", res);
+          this.userLoged(res as UsersModel);
         } else{
-          console.log("Fallo", res);
+          console.log("Fallo");
         }
       });
-
-
   }
 
-  getUsers(){
-    this.usersService.getUsers()
-      .subscribe( res => {
-        this.usersService.usersList = res as UsersModel[];
-      })
+  userLoged( user: UsersModel ){
+    console.log("User loged", user.userName);
+    this.usersService.selectedUser = user;
+    this.cleanForm();
   }
+
 
   cleanForm(){
     this.usersService.selectedUser = new UsersModel();
