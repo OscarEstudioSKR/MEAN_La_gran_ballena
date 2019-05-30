@@ -31,4 +31,7 @@ export class UsersService {
   deletetUser( _id:string ){
     return this.http.delete( this.URI_API + `/${_id}`);
   };
+  validateUser( user:UsersModel ){
+    return this.http.post( this.URI_API + `/validate`, user);
+  }
 }

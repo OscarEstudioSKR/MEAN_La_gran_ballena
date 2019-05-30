@@ -18,6 +18,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   saveUserForm( form: NgForm ){
+    this.usersService.selectedUser = form.value as UsersModel;
     this.usersService.postUser( form.value )
       .subscribe( res => {
         console.log( res );
@@ -26,7 +27,17 @@ export class MainMenuComponent implements OnInit {
   }
 
   loginUserForm( form: NgForm ){
-    
+
+    this.usersService.validateUser( form.value as UsersModel )
+      .subscribe( res => {
+        if(res){
+          console.log("User loged", res);
+        } else{
+          console.log("Fallo", res);
+        }
+      });
+
+
   }
 
   getUsers(){

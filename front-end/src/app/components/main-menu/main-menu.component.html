@@ -3,7 +3,7 @@
     <h1>LA GRAN BALLENA</h1>
 
     <form *ngIf="menuLogin; else menuNewUser" #usersForm = "ngForm" (ngSubmit) = "loginUserForm(usersForm)">
-      <input type="text" name="userName" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userMail" placeholder="Correo">
+      <input type="text" name="userMail" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userMail" placeholder="Correo">
       <input type="text" name="userPassword" #userPassword= "ngModel" [(ngModel)] = "usersService.selectedUser.userPassword" placeholder="Contraseña">
       <a (click)="menuLogin = !menuLogin ">Nuevo Usuario</a>
       <button (click)="ngSubmit">Jugar</button>

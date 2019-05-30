@@ -9,4 +9,6 @@ router.delete('/users/:id', usersController.deleteUser);
 router.post('/users/', usersController.postUser);
 router.put('/users/:id', usersController.putUser);
 
+router.post('/users/validate', usersController.validateUser);
+
 module.exports = router;

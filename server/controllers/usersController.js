@@ -9,8 +9,8 @@ usersController.api = (req, res) => {
 }
 
 usersController.getUsers = async (req, res) => {
-    const user = await usersSchema.find();
-    res.json(user);
+    const users = await usersSchema.find();
+    res.json(users);
 };
 
 usersController.getUser = async (req, res) => {
@@ -26,6 +26,24 @@ usersController.postUser = async (req, res) => {
     res.json(newUser);
 };
 
+usersController.validateUser = async (req, res) => {
+    const usersList = await usersSchema.find();
+    
+    const userLogin = await {
+        userMail: req.body.userMail,
+        userPassword: req.body.userPassword
+    }
+    const usersSameMail = await usersList.filter(user => {
+        return user.userMail === userLogin.userMail
+      });
+    
+    const userLoged = await usersSameMail.map(user => {
+        if(bcrypt.compareSync(userLogin.userPassword, user.userPassword) == true){
+            return user
+        }
+    })
+    res.json(userLoged[0]);
+}
 
 usersController.putUser = async (req, res) => {
     const {id} = req.params;
