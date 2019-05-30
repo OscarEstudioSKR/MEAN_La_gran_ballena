@@ -1,6 +1,6 @@
  <div class="main-menu">
 
-    <h1>LA GRAN BALLENA</h1>
+    <h1>LA GRAN BALLENA {{usersService.selectedUser.userName}}</h1>
 
     <form *ngIf="menuLogin; else menuNewUser" #usersForm = "ngForm" (ngSubmit) = "loginUserForm(usersForm)">
       <input type="mail" name="userMail" #userName= "ngModel" [(ngModel)] = "usersService.selectedUser.userMail" placeholder="Correo">

@@ -10,7 +10,7 @@ export class UsersService {
 
   readonly URI_API = "http://localhost:3001/api/users";
   selectedUser: UsersModel;
-  loged: boolean;
+  loged: boolean = false;
 
   constructor( private http: HttpClient) {
     this.selectedUser = new UsersModel();
